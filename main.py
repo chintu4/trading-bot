@@ -18,11 +18,24 @@ if __name__ == "__main__":
 
     coindcx_api = CoinDCXAPI(api_key, api_secret)
     percentage_strategy = PercentageStrategy(coindcx_api)
-    # print(coindcx_api.get_current_price("BAXINR"))
-    # print(coindcx_api.get_balance("BAXINR"))
-    # coindcx_api.place_order_now("BAXINR", 10066, coindcx_api.get_current_price("BAXINR"), "sell", "limit_order")
+    coin_name="YFIINR"
+    # print(coindcx_api.get_current_price(coin_name))
+    # print(coindcx_api.get_balance(coin_name))
+    # print(coindcx_api.get_balance("INR"))
+    balance=float("{:.2f}".format(coindcx_api.get_balance("INR")))/float(coindcx_api.get_current_price(coin_name))
+    float("{:.3f}".format(balance))
+    coindcx_api.place_order_now(coin_name,0.00013, coindcx_api.get_current_price(coin_name), "buy", "limit_order")
+   
+    # balance = coindcx_api.get_current_price("SOLINR")
+
+    # print(balance)
+    # if balance:
+    #     sol_price = coindcx_api.get_current_price("SOLINR")
+    #     if sol_price:
+    #         quantity = balance / sol_price
+    #         coindcx_api.place_order_now("SOLINR", quantity, sol_price, "buy", "limit_order")
     # coindcx_api.get_order_status()
-    print(coindcx_api.get_percentage_change("BTCINR"))
+    # print(coindcx_api.get_percentage_change("BTCINR"))
    
 
     # while True:

@@ -554,30 +554,136 @@ else:
 
 
 #TODO : add function to get back tested
-#TODO : search most mover coin,most traded coin,ranked coin 
-    def get_list_of_crypto_coins_by_symbol(self):
-        url = f"{self.BASE_URL}/exchange/ticker"
-        response = requests.get(url)
-        data = response.json()
-        crypto_coins = []
-        for item in data:
-            crypto_coins.append(item['market'])
-        return crypto_coins
-    
-    def get_list_of_crypto_coins_by_rank(self, number_of_coins=100):
-        url = f"{self.BASE_URL}/exchange/ticker"
-        response = requests.get(url)
-        data = response.json()
-        crypto_coins = []
-        for item in data[:number_of_coins]:
-            crypto_coins.append(item['market'])
-        return crypto_coins
-    
-    def get_list_of_most_mover_coins(self, number_of_coins=100):
-        url = f"{self.BASE_URL}/exchange/ticker"
-        response = requests.get(url)
-        data = response.json()
-        crypto_coins = []
-        for item in sorted(data, key=lambda x:abs(float(x['change_24_hour'])), reverse=True)[:number_of_coins]:
-            crypto_coins.append(item['market'])
-        return crypto_coins
+    def get_wallet_balance(self, symbol):
+        endpoint = "/exchange/v1/users/balances"
+        url = self.BASE_URL + endpoint
+
+        timestamp = int(time.time() * 1000)
+        payload = {
+            "timestamp": timestamp
+        }
+        json_payload = json.dumps(payload, separators=(',', ':'))
+        signature = self._generate_signature(json_payload)
+
+        headers = {
+            "Content-Type": "application/json",
+            "X-AUTH-APIKEY": self.api_key,
+            "X-AUTH-SIGNATURE": signature
+        }
+
+        try:
+            response = requests.post(url, data=json_payload, headers=headers)
+            response.raise_for_status()  # Check for HTTP errors (4xx or 5xx)
+            balances = response.json()
+            
+            for balance in balances:
+                if balance['currency'] == symbol[:3]:
+                    
+                    # if balance['locked_balance']:
+                    #     return f"Locked {balance['currency']} at {balance['locked_price']}"
+                    # else:
+                    return float(balance['balance'])
+            return None
+        except requests.exceptions.RequestException as e:
+            print(f"Error during API request: {e}")
+            return None
+# import requests
+# import hmac
+# import hashlib
+# import time
+# import json
+
+# class CoinDCXAPI:
+#     BASE_URL = "https://api.coindcx.com"
+
+#     def __init__(self, api_key, api_secret):
+#         self.api_key = api_key
+#         self.api_secret = api_secret
+
+#     def _generate_signature(self, payload):
+#         secret_bytes = bytes(self.api_secret, encoding='utf-8')
+#         signature = hmac.new(secret_bytes, payload.encode(), hashlib.sha256).hexdigest()
+#         return signature
+
+    def get_account_balance(self):
+        endpoint = "/exchange/v1/users/balances"
+        url = self.BASE_URL + endpoint
+
+        timestamp = int(time.time() * 1000)
+        payload = {
+            "timestamp": timestamp
+        }
+        json_payload = json.dumps(payload, separators=(',', ':'))
+        signature = self._generate_signature(json_payload)
+
+        headers = {
+            "Content-Type": "application/json",
+            "X-AUTH-APIKEY": self.api_key,
+            "X-AUTH-SIGNATURE": signature
+        }
+
+        try:
+            response = requests.post(url, data=json_payload, headers=headers)
+            response.raise_for_status()  # Check for HTTP errors (4xx or 5xx)
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error during API request: {e}")
+            return None
+
+# # Example usage
+# api_key = "your_api_key"
+# api_secret = "your_api_secret"
+# coindcx_api = CoinDCXAPI(api_key, api_secret)
+
+# balance = coindcx_api.get_balance()
+# if balance:
+#     print("Your wallet balance:", balance)
+# else:
+#     print("Failed to retrieve wallet balance.")
+# self.get_balance("INR")
+
+    def place_order_with_balance(self, symbol, inr_balance, order_side, order_type):
+        price_per_unit = self.get_current_price(symbol)
+        if price_per_unit is None:
+            print("Could not retrieve current price.")
+            return None
+
+        quantity = inr_balance / float(price_per_unit)
+
+        endpoint = "/exchange/v1/orders/create"
+        url = self.BASE_URL + endpoint
+
+        timestamp = int(time.time() * 1000)
+        payload = {
+            "market": symbol,
+            "total_quantity": quantity,
+            "price_per_unit": price_per_unit,
+            "side": order_side,
+            "order_type": order_type,
+            "timestamp": timestamp
+        }
+        json_payload = json.dumps(payload, separators=(',', ':'))
+        signature = self._generate_signature(json_payload)
+
+        headers = {
+            "Content-Type": "application/json",
+            "X-AUTH-APIKEY": self.api_key,
+            "X-AUTH-SIGNATURE": signature
+        }
+
+        try:
+            response = requests.post(url, data=json_payload, headers=headers)
+            response.raise_for_status()  # Check for HTTP errors (4xx or 5xx)
+            print(response)
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error during API request: {e}")
+            return None
+
+# Example usage
+# coin_name = "BTCINR"  # Replace with your desired coin name
+# order_side = "buy"  # Replace with "buy" or "sell"
+# order_type = "market_order"  # Replace with "limit_order" or "market_order"
+
+# order_response = coindcx_api.place_order_with_balance(coin_name, inr_balance, order_side, order_type)
+# print(order_response)

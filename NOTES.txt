@@ -1,0 +1,42 @@
+# Mean reversion
+Average Price Strategy
+# Arbitage
+Price Difference Exploitation 
+# Naive Bayes
+Machine learning Probability
+# Momentum investing
+Riding the Wave
+# Natural language processing
+# Trading Strategies and Techniques
+
+# Trading Strategies and Techniques
+# 1. Buy and hold
+# 2. Scalping
+# 3. Day Trading
+# 4. Swing Trading
+# 5. Position Trading
+# 6. Trend Following
+# 7. Range Trading
+# 8. Breakout Trading
+# 9. Reversal Trading
+# 10. Mean Reversion
+# 11. Statistical Arbitrage
+# 12. Event-Driven Strategy
+# 13. Risk Arbitrage
+# 14. Quantitative Trading
+# 15. High-Frequency Trading
+# 16. Market Making
+# 17. Momentum Trading
+# 18. Index Trading
+# 19. Spread Trading
+# 20. Carry Trading
+# 21. Pairs Trading
+# 22. Options Trading
+# 23. Futures Trading
+# 24. Leverage Trading
+# 25. Diversification Trading
+# 26. Hedging
+# 27. Short Selling
+# 28. Dollar-Cost Averaging
+# 29. Value Investing
+# 30. Growth Investing
