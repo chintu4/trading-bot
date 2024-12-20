@@ -1,48 +1,34 @@
+import os
+import logging
+from services.coindcx_api import CoinDCXAPI
+from strategies.percentage_strategy import PercentageStrategy
+from dotenv import load_dotenv
+load_dotenv()
 
-import requests
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
 
-class ExchangeAPI:
-    def __init__(self, api_key, api_secret):
-        self.api_key = api_key
-        self.api_secret = api_secret
-        self.headers = {
-            "Authorization": f"Bearer {self.api_key}",
-            # Add other required headers here
-        }
+    api_key = os.getenv("COINDCX_API_KEY")
+    api_secret = os.getenv("COINDCX_API_SECRET")
 
-    def get_market_data(self, symbol):
-        raise NotImplementedError("This method should be overridden by subclasses.")
+    if not api_key or not api_secret:
+        logger.error("Please set COINDCX_API_KEY and COINDCX_API_SECRET environment variables.")
+        exit(1)
 
-class CoinDCXAPI(ExchangeAPI):
-    BASE_URL = "https://api.coindcx.com"
+    coindcx_api = CoinDCXAPI(api_key, api_secret)
+    percentage_strategy = PercentageStrategy(coindcx_api)
+    # print(coindcx_api.get_current_price("BAXINR"))
+    # print(coindcx_api.get_balance("BAXINR"))
+    # coindcx_api.place_order_now("BAXINR", 10066, coindcx_api.get_current_price("BAXINR"), "sell", "limit_order")
+    # coindcx_api.get_order_status()
+    print(coindcx_api.get_percentage_change("BTCINR"))
+   
 
-    def get_market_data(self, symbol):
-        endpoint = f"/exchange/v1/market_details?symbol={symbol}"
-        url = self.BASE_URL + endpoint
-
-        try:
-            response = requests.get(url, headers=self.headers)
-            response.raise_for_status()
-
-            data = response.json()
-            return {
-                "last_price": float(data["market_details"]["last_price"]),
-                # Add other relevant data fields as needed
-            }
-
-        except requests.exceptions.RequestException as e:
-            print(f"Error fetching market data for {symbol}: {e}")
-            return None
-        except KeyError as e:
-            print(f"Error parsing response for {symbol}: {e}")
-            return None
-        except Exception as e:
-            print(f"Unexpected error for {symbol}: {e}")
-            return None
-
-    def get_latest_price(self, symbol):
-        market_data = self.get_market_data(symbol)
-        if market_data:
-            return market_data['last_price']
-        else:
-            return None
+    # while True:
+    #     try:
+    #         # percentage_strategy.execute("BTCINR", 0.01, 2, 2)
+    #         print(coindcx_api.get_current_price("BTCINR"))
+    #     except KeyboardInterrupt:
+    #         logger.info("Exiting")
+    #         break
