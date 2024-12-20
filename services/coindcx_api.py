@@ -554,3 +554,30 @@ else:
 
 
 #TODO : add function to get back tested
+#TODO : search most mover coin,most traded coin,ranked coin 
+    def get_list_of_crypto_coins_by_symbol(self):
+        url = f"{self.BASE_URL}/exchange/ticker"
+        response = requests.get(url)
+        data = response.json()
+        crypto_coins = []
+        for item in data:
+            crypto_coins.append(item['market'])
+        return crypto_coins
+    
+    def get_list_of_crypto_coins_by_rank(self, number_of_coins=100):
+        url = f"{self.BASE_URL}/exchange/ticker"
+        response = requests.get(url)
+        data = response.json()
+        crypto_coins = []
+        for item in data[:number_of_coins]:
+            crypto_coins.append(item['market'])
+        return crypto_coins
+    
+    def get_list_of_most_mover_coins(self, number_of_coins=100):
+        url = f"{self.BASE_URL}/exchange/ticker"
+        response = requests.get(url)
+        data = response.json()
+        crypto_coins = []
+        for item in sorted(data, key=lambda x:abs(float(x['change_24_hour'])), reverse=True)[:number_of_coins]:
+            crypto_coins.append(item['market'])
+        return crypto_coins
