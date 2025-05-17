@@ -12,19 +12,10 @@ import json
 from dotenv import load_dotenv
 load_dotenv()
 
-
-
+def main():
+    pass
 
 # apply not indicator stategy
 if __name__ == "__main__":
-    ex=CoinDCXAPI()
-    ps=PercentageStrategy()
+    main()
     
-    
-    
-
-
-
-@app.event_grid_trigger(arg_name="azeventgrid")
-def EventGridTrigger(azeventgrid: func.EventGridEvent):
-    logging.info('Python EventGrid trigger processed an event')

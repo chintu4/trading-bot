@@ -1,0 +1,97 @@
+2025-02-10 05:08:36,576 - WARNING - Insufficient funds to place buy order (including fees).
+2025-02-10 05:09:29,115 - INFO - Attempting to buy 1.231822611039987e-05 BTCINR at \u20b98929857.19, Total Payable: \u20b9110.65
+2025-02-10 05:09:29,124 - ERROR - An unexpected error occurred:
+Traceback (most recent call last):
+  File "C:\Users\dsjapnc\AppData\Local\Temp\ipykernel_12584\2620843840.py", line 284, in <module>
+    trading_bot()
+  File "C:\Users\dsjapnc\AppData\Local\Temp\ipykernel_12584\2620843840.py", line 242, in trading_bot
+    buy_response = place_order("buy", quantity, ask_price)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dsjapnc\AppData\Local\Temp\ipykernel_12584\2620843840.py", line 139, in place_order
+    signature = generate_signature(payload_str, API_SECRET)
+                                                ^^^^^^^^^^
+NameError: name 'API_SECRET' is not defined
+2025-02-10 05:11:18,283 - INFO - Attempting to buy 1.231822611039987e-05 BTCINR at \u20b98929857.19, Total Payable: \u20b9110.65
+2025-02-10 05:11:19,203 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:11:19,205 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:11:36,682 - INFO - Attempting to buy 1.231822611039987e-05 BTCINR at \u20b98929857.19, Total Payable: \u20b9110.65
+2025-02-10 05:11:37,601 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:11:37,602 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:11:56,187 - INFO - Attempting to buy 1.231822611039987e-05 BTCINR at \u20b98929857.19, Total Payable: \u20b9110.65
+2025-02-10 05:11:56,852 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:11:56,854 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:12:16,309 - INFO - Attempting to buy 1.231822611039987e-05 BTCINR at \u20b98929857.19, Total Payable: \u20b9110.65
+2025-02-10 05:12:17,139 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:12:17,140 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:12:34,443 - INFO - Attempting to buy 1.231822611039987e-05 BTCINR at \u20b98929857.19, Total Payable: \u20b9110.65
+2025-02-10 05:12:35,253 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:12:35,253 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:12:54,422 - INFO - Attempting to buy 1.231822611039987e-05 BTCINR at \u20b98929857.19, Total Payable: \u20b9110.65
+2025-02-10 05:12:55,261 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:12:55,261 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:13:13,862 - INFO - Attempting to buy 1.231822611039987e-05 BTCINR at \u20b98929857.19, Total Payable: \u20b9110.65
+2025-02-10 05:13:14,290 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:13:14,290 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:13:31,171 - INFO - Attempting to buy 1.231822611039987e-05 BTCINR at \u20b98929857.19, Total Payable: \u20b9110.65
+2025-02-10 05:13:31,870 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:13:31,872 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:13:48,983 - INFO - Attempting to buy 1.231822611039987e-05 BTCINR at \u20b98929857.19, Total Payable: \u20b9110.65
+2025-02-10 05:13:49,594 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:13:49,594 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:15:23,478 - INFO - Attempting to buy 1.2298875812982524e-05 BTCINR at \u20b98943906.88, Total Payable: \u20b9110.65
+2025-02-10 05:15:23,902 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:15:23,903 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:15:39,993 - INFO - Attempting to buy 1.2307053001902413e-05 BTCINR at \u20b98937964.27, Total Payable: \u20b9110.65
+2025-02-10 05:15:40,473 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:15:40,473 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:15:56,253 - INFO - Attempting to buy 1.2307053001902413e-05 BTCINR at \u20b98937964.27, Total Payable: \u20b9110.65
+2025-02-10 05:15:56,792 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:15:56,803 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:16:12,837 - INFO - Attempting to buy 1.2307053001902413e-05 BTCINR at \u20b98937964.27, Total Payable: \u20b9110.65
+2025-02-10 05:16:13,160 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:16:13,160 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:16:29,226 - INFO - Attempting to buy 1.2307053001902413e-05 BTCINR at \u20b98937964.27, Total Payable: \u20b9110.65
+2025-02-10 05:16:29,551 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:16:29,552 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:16:45,917 - INFO - Attempting to buy 1.2307053001902413e-05 BTCINR at \u20b98937964.27, Total Payable: \u20b9110.65
+2025-02-10 05:16:46,245 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:16:46,245 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:17:10,381 - INFO - Attempting to buy 1.2302627328065873e-05 BTCINR at \u20b98941179.56, Total Payable: \u20b9110.65
+2025-02-10 05:17:11,190 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:17:11,574 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:17:27,604 - INFO - Attempting to buy 1.230745739533907e-05 BTCINR at \u20b98937670.59, Total Payable: \u20b9110.65
+2025-02-10 05:17:27,931 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:17:27,932 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:17:44,684 - INFO - Attempting to buy 1.230745739533907e-05 BTCINR at \u20b98937670.59, Total Payable: \u20b9110.65
+2025-02-10 05:17:45,219 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:17:45,219 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:18:01,380 - INFO - Attempting to buy 1.2304293693128002e-05 BTCINR at \u20b98939968.66, Total Payable: \u20b9110.65
+2025-02-10 05:18:01,749 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:18:01,749 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:19:52,920 - INFO - Attempting to buy 1.2290876092608744e-05 BTCINR at \u20b98949728.17, Total Payable: \u20b9110.65
+2025-02-10 05:19:53,455 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:19:53,456 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:20:41,116 - INFO - Attempting to buy 1.2292331521396361e-05 BTCINR at \u20b98948668.51, Total Payable: \u20b9110.65
+2025-02-10 05:20:42,040 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:20:42,041 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:20:58,330 - INFO - Attempting to buy 1.2292331521396361e-05 BTCINR at \u20b98948668.51, Total Payable: \u20b9110.65
+2025-02-10 05:20:58,654 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:20:58,662 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:21:14,922 - INFO - Attempting to buy 1.2292331521396361e-05 BTCINR at \u20b98948668.51, Total Payable: \u20b9110.65
+2025-02-10 05:21:15,245 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:21:15,247 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:21:31,098 - INFO - Attempting to buy 1.2292331521396361e-05 BTCINR at \u20b98948668.51, Total Payable: \u20b9110.65
+2025-02-10 05:21:31,453 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:21:31,454 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:21:47,382 - INFO - Attempting to buy 1.2292331521396361e-05 BTCINR at \u20b98948668.51, Total Payable: \u20b9110.65
+2025-02-10 05:21:47,796 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:21:47,796 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:22:04,094 - INFO - Attempting to buy 1.2292331521396361e-05 BTCINR at \u20b98948668.51, Total Payable: \u20b9110.65
+2025-02-10 05:22:04,575 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:22:04,576 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:22:21,164 - INFO - Attempting to buy 1.2291088041349687e-05 BTCINR at \u20b98949573.84, Total Payable: \u20b9110.65
+2025-02-10 05:22:21,614 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:22:21,619 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:22:38,157 - INFO - Attempting to buy 1.2291088041349687e-05 BTCINR at \u20b98949573.84, Total Payable: \u20b9110.65
+2025-02-10 05:22:38,509 - ERROR - Error placing order: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
+2025-02-10 05:22:38,510 - ERROR - Buy order failed: 400 Client Error: Bad Request for url: https://api.coindcx.com/exchange/v1/orders/create
