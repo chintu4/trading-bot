@@ -5,3 +5,4 @@
 azure-functions
 python-dotenv
 azure-cosmos
+python-telegram-bot

@@ -1,4 +1,57 @@
 # Trading Settings
+
+## ⚠️ Live Trading Disclaimer
+
+**Please read this carefully before enabling live trading with real funds.**
+
+Algorithmic trading carries significant financial risk. The strategies and code provided in this repository are for educational and experimental purposes only.
+
+-   **No Guarantees:** There is no guarantee that the bot will generate profits. Market conditions can change rapidly, and past performance is not indicative of future results.
+-   **Financial Loss:** You could lose some or all of your invested capital. Only trade with funds that you can afford to lose.
+-   **Bugs and Errors:** Software, including this trading bot, may contain bugs or errors that could lead to unexpected behavior or financial losses.
+-   **Test Thoroughly:** Before trading with real money, it is crucial to:
+    -   Thoroughly test the bot and your strategies in a simulated environment or with very small, non-critical amounts of capital.
+    -   Understand the code and the strategies you are deploying.
+    -   Be aware of the specific risks associated with the markets and assets you are trading (e.g., cryptocurrencies are highly volatile).
+-   **Exchange Risks:** Be aware of the risks associated with using cryptocurrency exchanges, including API limitations, downtime, and security vulnerabilities.
+-   **API Keys:** Secure your API keys. Do not commit them to the repository. Use the `.env` file as instructed.
+
+**By using this software for live trading, you acknowledge these risks and agree that you are solely responsible for all trading decisions and their outcomes.** The maintainers and contributors of this repository are not liable for any financial losses you may incur.
+
+**Always start with small amounts and monitor performance closely.**
+
+### Testing Live Functionality Safely
+
+Before letting the bot trade with significant capital using the live order placement features, it's critical to test its live trading functionality cautiously. Since a dedicated paper trading mode via API might not be available or easily accessible for spot trading on all exchanges:
+
+1.  **Configuration Double-Check**:
+    *   Verify that your `COINDCX_API_KEY` and `COINDCX_API_SECRET` in your `.env` file are correct and have the necessary trading permissions on the exchange.
+    *   Ensure `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` are correct so you receive timely notifications.
+    *   Confirm your Cosmos DB connection details are correct if you are relying on it for logging.
+
+2.  **Use Minimum Tradable Quantities**:
+    *   When you decide to test with real funds, start with the **absolute minimum tradable quantity** allowed by CoinDCX for your chosen trading pair (e.g., for BTC/INR, find the smallest fraction of BTC you can trade). This minimizes potential financial loss during testing. You'll need to check CoinDCX's documentation or interface for these minimums.
+
+3.  **Consider a Low-Value Test Symbol**:
+    *   If you're apprehensive, you could conduct your very first live tests on a highly liquid pair with a very low unit value, if available.
+
+4.  **Monitor Closely**:
+    *   Run the strategy that triggers the live trading logic (e.g., by running a script that calls the `PercentageStrategy().execute(...)` method with appropriate parameters).
+    *   Carefully observe the application's console logs for messages related to order placement attempts, successes (with order IDs), or failures.
+    *   Check for Telegram notifications, which should mirror these events.
+
+5.  **Verify on the Exchange**:
+    *   After the bot attempts to place an order, log in to your CoinDCX account directly through their website or app.
+    *   Manually verify if the order appears in your open orders or trade history. Check its status, fill details, and any fees. This is the ultimate confirmation.
+
+6.  **Understand Strategy Behavior**:
+    *   The `PercentageStrategy` included is a basic example. Make sure you understand its logic (when it decides to buy or sell based on percentage changes) before allowing it to manage real funds.
+
+7.  **Start/Stop Mechanism**:
+    *   Have a clear way to start and, more importantly, **stop** the bot or the script that's triggering live trades. Do not leave it running unattended until you are highly confident in its behavior.
+
+By following these steps, you can gain more confidence in the bot's live trading capabilities while minimizing risk.
+
 ## Aim
 The main aim of the repository 
 1. make successful trades.
