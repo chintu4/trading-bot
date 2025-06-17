@@ -7,10 +7,37 @@ The main aim of the repository
 4. Use cosmosdb as this will used it
 5. Use Azure function to run the code
 
-# configuring cosmos db 
-```bash
-& "C:\Program Files\Azure Cosmos DB Emulator\CosmosDB.Emulator.exe"
-```
+## Using Azure Cosmos DB Emulator (Local Development)
+
+As noted in previous sections, this project can connect to Azure Cosmos DB. For local development and testing, you can use the Azure Cosmos DB Emulator.
+
+**1. Start the Emulator:**
+   Open PowerShell or your command line and run the command you've noted for starting the emulator (typically found in its installation directory):
+   ```bash
+   # Example command (verify path on your system):
+   & "C:\Program Files\Azure Cosmos DB Emulator\CosmosDB.Emulator.exe"
+   ```
+   Ensure the emulator is running before starting the application if you intend to connect to it.
+
+**2. Configure Connection Details:**
+   The Cosmos DB Emulator uses a default endpoint and key:
+   *   **Endpoint:** `https_://localhost:8081/`
+   *   **Primary Key:** `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`
+
+   To allow the application to connect to the local emulator, create a file named `.env` in the root directory of this project (if you haven't already for other settings). Add the following lines to it:
+
+   ```env
+   COSMOS_DB_ENDPOINT="https_://localhost:8081/"
+   COSMOS_DB_KEY="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+   ```
+
+   The application's `config/settings.py` is set up to read these values from the `.env` file to configure the connection in `services/cosmosdb_service.py`.
+
+**3. Accessing Emulator Data:**
+   When the emulator is running, you can usually open a web browser and navigate to `https_://localhost:8081/_explorer/index.html` to view and manage your data directly.
+
+**Note:** The `.env` file is included in `.gitignore`, so your local credentials will not be committed to the repository. Remember to configure your actual Azure Cosmos DB credentials in your production environment's settings.
+
 # Version and Goals
 ## version 0.1
 ### Planing 

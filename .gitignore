@@ -1,1 +1,33 @@
 /test
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.~cpython*.pyc
+
+# Environment variables
+.env
+local.settings.json
+
+# IDE / Editor
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
